@@ -5,7 +5,7 @@
 The assessment consists of 2 parts: a coding challenge and then a code walkthough with the staff where we will ask questions about your code.
 
 ## Coding Challenge - Creating a Guestbook in React
-You will create a guestbook applcation that will let you enter invitations and record their RSVP status.
+You will create a guestbook application that will let you enter invitations and record their RSVP status.
 
 - Create a react application called `guest-book-app`
 - Create 4 components:
@@ -28,7 +28,7 @@ You will create a guestbook applcation that will let you enter invitations and r
   - `guestName` An input field for entering the name of the guest
   - `guestPhoneNumber` An input field for entering the phone number of the guest
   - `guestRsvpStatus` An input field for specifying if the guest has RSVPed (This should be a boolean value and you may use either a checkbox or a dropdown select list field)
-  - A button for submisson of the data from the form
+  - A button for submission of the data from the form
 
 - When the form is submitted, use the callback method reference from the parent component to update the parent component's state
   - Pass the guest information to the callback as an object in the following format
