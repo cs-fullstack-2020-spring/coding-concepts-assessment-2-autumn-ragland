@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 class GuestBookList extends Component{
     constructor(props){
         super(props);
@@ -10,7 +10,7 @@ class GuestBookList extends Component{
     render(){
         return(
             <div>
-                <h1>Guest Book List</h1>
+                <h1>Waiting For Response</h1>
                 <div>
                     {
                         this.props.noResponseList.map((guest, index) => {

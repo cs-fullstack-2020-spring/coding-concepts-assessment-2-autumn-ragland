@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 class GuessBookForm extends Component {
     constructor(props) {
         super(props);
@@ -12,23 +12,26 @@ class GuessBookForm extends Component {
     handleChange = (event) => {
         let inputName = event.target.name;
         let inputValue = event.target.value;
-        if (inputName == "guestName") {
+        if (inputName === "guestName") {
             this.setState({ [inputName]: inputValue })
-        } else if (inputName == "guestNumber") {
+        } else if (inputName === "guestNumber") {
             this.setState({ [inputName]: inputValue })
-        } else if (inputName == "guestResponse") {
+        } else if (inputName === "guestResponse") {
             this.setState({ [inputName]: inputValue })
         }
     }
 
     handleSubmission = (event) => {
         event.preventDefault();
-        console.log(this.state);
+        // console.log(this.state);
         this.setState({
             guestName: "",
             guestNumber: "",
             guestResponse: "",
         })
+        let hasResponded = false;
+        this.state.guestResponse === "true" ? hasResponded = true : hasResponded = false
+        this.props.formSubmission({ name: this.state.guestName, number: this.state.guestNumber }, hasResponded)
     }
 
     render() {
@@ -41,16 +44,16 @@ class GuessBookForm extends Component {
 
                         <div className="inputGroup">
                             <label htmlFor="guestName">Name : </label>
-                            <input type="text" name="guestName" id="guestName" value={this.state.guestName} onChange={this.handleChange} />
+                            <input type="text" name="guestName" id="guestName" value={this.state.guestName} onChange={this.handleChange} required />
                         </div>
 
                         <div className="inputGroup">
                             <label htmlFor="guestName">Number : </label>
-                            <input type="tel" name="guestNumber" id="guestNumber" value={this.state.guestNumber} onChange={this.handleChange} />
+                            <input type="tel" name="guestNumber" id="guestNumber" value={this.state.guestNumber} onChange={this.handleChange} required />
                         </div>
                         <div className="inputGroup">
                             <label htmlFor="guestResponse">Registered : </label>
-                            <select name="guestResponse" id="guestResponse" value={this.state.guestResponse} onChange={this.handleChange}>
+                            <select name="guestResponse" id="guestResponse" value={this.state.guestResponse} onChange={this.handleChange} required>
                                 <option value="">--</option>
                                 <option value={true}>Yes</option>
                                 <option value={false}>No</option>
