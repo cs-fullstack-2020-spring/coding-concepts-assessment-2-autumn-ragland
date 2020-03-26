@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 class GuessBookForm extends Component {
     constructor(props) {
         super(props);
+        // set initial state for form fields
         this.state = {
             guestName: "",
             guestNumber: "",
@@ -9,9 +10,12 @@ class GuessBookForm extends Component {
         }
     }
 
+    // event handler for form fields
     handleChange = (event) => {
-        let inputName = event.target.name;
-        let inputValue = event.target.value;
+        // variables to hold properties of event.target
+        let inputName = event.target.name; // name of form field
+        let inputValue = event.target.value; // value of form field
+        // conditionally update property of state to value of form field based on name of form field (form field name and prop of state name match)
         if (inputName === "guestName") {
             this.setState({ [inputName]: inputValue })
         } else if (inputName === "guestNumber") {
@@ -21,19 +25,25 @@ class GuessBookForm extends Component {
         }
     }
 
+    // event handler for form submission
     handleSubmission = (event) => {
-        event.preventDefault();
-        // console.log(this.state);
+        event.preventDefault(); // keep form from reloading
+        // console.log(this.state); // check form values
+        // clear form values
         this.setState({
             guestName: "",
             guestNumber: "",
             guestResponse: "",
         })
-        let hasResponded = false;
+        // define variable for boolean value to send to parent
+        let hasResponded;
+        // set value of boolean variable from form submission string value
         this.state.guestResponse === "true" ? hasResponded = true : hasResponded = false
+        // call back function from parent - pass form values and boolean value
         this.props.formSubmission({ name: this.state.guestName, number: this.state.guestNumber }, hasResponded)
     }
 
+    // display title and form with three fields and submit button
     render() {
         return (
             <div>

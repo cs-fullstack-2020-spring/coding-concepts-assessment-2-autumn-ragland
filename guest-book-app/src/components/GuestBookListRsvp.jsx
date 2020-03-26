@@ -1,12 +1,6 @@
 import React, { Component } from 'react';
 class GuestBookListRSVP extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-
-        }
-    }
-
+    // display a div with name and number of each guest that did not respond - passed down from parent via props
     render() {
         return (
             <div>
@@ -15,7 +9,7 @@ class GuestBookListRSVP extends Component {
                     {
                         this.props.responseList.map((guest, index) => {
                             return (
-                                <div key = {index}>
+                                <div key={index}>
                                     <p>Name : {guest.name}</p>
                                     <p>Number : {guest.number}</p>
                                 </div>
