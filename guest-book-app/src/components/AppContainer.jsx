@@ -27,7 +27,7 @@ class AppContainer extends Component {
     //     this.setState({noResponseList : this.state.noResponseList})
     // }
 
-    // function to check if guest has RSVPed when form is submitted - called by form child component
+    // function to check if guest has RSVP-ed when form is submitted - called by form child component
     formSubmission = (guest, hasResponded) => {
 
         // test params by printing to console
