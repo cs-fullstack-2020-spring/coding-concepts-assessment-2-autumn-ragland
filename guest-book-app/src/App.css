@@ -21,3 +21,8 @@
   grid-column: 3;
   padding: 1%;
 }
+
+.inputGroup{
+  display: block;
+  padding: 1%;
+}
