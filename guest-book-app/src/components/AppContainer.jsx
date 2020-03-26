@@ -6,8 +6,24 @@ class AppContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-
+            responseList: [],
+            noResponseList: [],
+            
         }
+    }
+
+    componentDidMount() {
+        this.state.responseList.push({
+            name: "autumn",
+            number: 9011234567,
+        })
+        this.setState({responseList : this.state.responseList})
+
+        this.state.noResponseList.push({
+            name: "adam",
+            number: 9019876543,
+        })
+        this.setState({noResponseList : this.state.noResponseList})
     }
 
     render() {
@@ -16,8 +32,8 @@ class AppContainer extends Component {
                 <h1>Guest Book Manager</h1>
                 <div className="guestBookGrid">
                     <GuessBookForm className="formChild" />
-                    <GuestBookList className="listChild" />
-                    <GuestBookListRSVP className="rsvpChild" />
+                    <GuestBookList  noResponseList={this.state.noResponseList} className="listChild" />
+                    <GuestBookListRSVP responseList={this.state.responseList} className="rsvpChild" />
                 </div>
             </Fragment>
         )

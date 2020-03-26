@@ -1,17 +1,29 @@
-import React, {Component, Fragment} from 'react';
-class GuestBookListRSVP extends Component{
-    constructor(props){
+import React, { Component, Fragment } from 'react';
+class GuestBookListRSVP extends Component {
+    constructor(props) {
         super(props);
         this.state = {
 
         }
     }
 
-    render(){
-        return(
-            <Fragment>
+    render() {
+        return (
+            <div>
                 <h1>Guest Book List RSVP</h1>
-            </Fragment>
+                <div>
+                    {
+                        this.props.responseList.map((guest, index) => {
+                            return (
+                                <div key = {index}>
+                                    <p>Name : {guest.name}</p>
+                                    <p>Number : {guest.number}</p>
+                                </div>
+                            )
+                        })
+                    }
+                </div>
+            </div>
         )
     }
 }
